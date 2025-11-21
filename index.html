@@ -4,39 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AL-HIQMA LEARNING CENTRE - 2025 3rd Term Exam Results</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style-new.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
+<!-- Add jsPDF and jsPDF-AutoTable for PDF generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf-autotable.umd.min.js"></script>
+<style>
+  .subject-search-input {
+    text-align: center;
+  }
+</style>
 <body>
 
   <!-- Header -->
   <header class="site-header card">
     <div class="container header-content">
       <div class="header-left">
-        <img src="Logo.jpg" alt="AL-HIQMA Logo" class="logo interactive-logo">
+        <img src="assets/Logo.jpg" alt="AL-HIQMA Logo" class="logo interactive-logo">
       </div>
       <div class="header-right">
         <h1 class="header-title fade-seq">AL-HIQMA LEARNING CENTRE</h1>
-        <p class="header-subtitle fade-seq delay-1">3rd Term Exam 2025 – O/L Batch</p>
+        <p class="header-subtitle fade-seq delay-1" id="exam-title">3rd Term Exam 2025 – O/L Batch</p>
       </div>
     </div>
   </header>
 
+  <!-- Breadcrumb Navigation -->
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="#" class="breadcrumb-link" id="back-to-home">
+        <i class="fas fa-home"></i> Home
+      </a>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">Results</span>
+    </div>
+  </nav>
+
   <main class="container">
 
     <!-- Coordinator Info -->
-    <section class="coordinator-info card">
-      <p><strong>Coordinator:</strong> AR. Rifas (Sir)</p>
-      <p><strong>Contact Number:</strong> <a href="tel:+94763005023">+94 763005023</a></p>
-      <p><strong>Address:</strong> Thoppur, Trincomalee, Sri Lanka</p>
-      <p><strong>Email:</strong> <a href="mailto:alhiqmalearningcentre@gmail.com">alhiqmalearningcentre@gmail.com</a></p>
-      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/alhiqmalc.thoppur" target="_blank">Facebook Page</a></p>
+    <section class="coordinator-info card reveal">
+      <p><i class="fas fa-user-tie icon-inline"></i><strong>Coordinator:</strong> AR. Rifas (Sir)</p>
+      <p><i class="fas fa-phone icon-inline"></i><strong>Contact Number:</strong> <a href="tel:+94763005023">+94 763005023</a></p>
+      <p><i class="fas fa-map-marker-alt icon-inline"></i><strong>Address:</strong> Thoppur, Trincomalee, Sri Lanka</p>
+      <p><i class="fas fa-envelope icon-inline"></i><strong>Email:</strong> <a href="mailto:alhiqmalearningcentre@gmail.com">alhiqmalearningcentre@gmail.com</a></p>
+      <p><i class="fab fa-facebook icon-inline"></i><strong>Facebook:</strong> <a href="https://www.facebook.com/alhiqmalc.thoppur" target="_blank">Facebook Page</a></p>
     </section>
 
     <!-- Instructions Section -->
-    <section class="instructions-notes card">
+    <section class="instructions-notes card reveal">
       <h3>Instructions for Students / Parents</h3>
       <ul>
         <li>Check your Index Number and Exam Year carefully.</li>
@@ -46,27 +65,36 @@
     </section>
 
     <!-- Exam Result Form -->
-    <section id="search-section" class="card">
+    <section id="search-section" class="card reveal">
       <h2>Check Your Examination Results</h2>
       <p>Please fill out the form below to view your results.</p>
       <form id="search-form" class="input-group" aria-label="Examination Result Form">
         <!-- Exam Select -->
-        <select id="examSelect" required>
-          <option value="">Select Exam</option>
-          <option value="G.C.E. (O/L) EXAMINATION">G.C.E. (O/L) EXAMINATION</option>
-          <option value="G.C.E. (A/L) EXAMINATION">G.C.E. (A/L) EXAMINATION</option>
-        </select>
+        <div class="select-with-icon">
+          <i class="fas fa-graduation-cap select-icon"></i>
+          <select id="examSelect" required>
+            <option value="">Select Exam</option>
+            <option value="G.C.E. (O/L) EXAMINATION">G.C.E. (O/L) EXAMINATION</option>
+            <option value="G.C.E. (A/L) EXAMINATION">G.C.E. (A/L) EXAMINATION</option>
+          </select>
+        </div>
 
         <!-- Year Select -->
-        <select id="yearSelect" required>
-          <option value="">Select Year</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-        </select>
+        <div class="select-with-icon">
+          <i class="fas fa-calendar select-icon"></i>
+          <select id="yearSelect" required>
+            <option value="">Select Year</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
 
         <!-- Index Number -->
-        <input type="text" id="indexInput" placeholder="Enter Your Index Number" required>
+        <div class="input-with-icon">
+          <i class="fas fa-id-card input-icon"></i>
+          <input type="text" id="indexInput" placeholder="Enter Your Index Number" required>
+        </div>
 
         <!-- Human Checkbox -->
         <label class="human-checkbox">
@@ -91,7 +119,7 @@
     <div id="error-message" class="card error hidden" role="alert"></div>
 
     <!-- Info Grid -->
-    <section class="info-grid card" aria-label="Help and support information">
+    <section class="info-grid card reveal" aria-label="Help and support information">
       <article class="info-card">
         <i class="fas fa-bolt" aria-hidden="true"></i>
         <h3>Instant Access</h3>
@@ -110,36 +138,90 @@
     </section>
 
     <!-- Results Section -->
-    <section id="results-section" class="card hidden">
+    <section id="results-section" class="card hidden" role="region" aria-label="Examination Results">
       <div class="results-header">
         <h3>Your Results</h3>
 
-        <button id="printBtn" class="results-btn-print"><i class="fas fa-print"></i> Print Results</button>
-        <button id="downloadBtn" class="results-btn-download"><i class="fas fa-download"></i> Download PDF</button>
+        <div class="action-buttons">
+          <button id="copyIndexBtn" class="results-btn-copy" aria-label="Copy Index Number">
+            <i class="fas fa-copy"></i> Copy Index
+          </button>
+          <button id="printBtn" class="results-btn-print" aria-label="Print Results">
+            <i class="fas fa-print"></i> Print Results
+          </button>
+          <button id="downloadBtn" class="results-btn-download" aria-label="Download PDF">
+            <i class="fas fa-download"></i> Download PDF
+          </button>
+          <button id="shareBtn" class="results-btn-share" aria-label="Share Result">
+            <i class="fas fa-share-alt"></i> Share
+          </button>
+        </div>
       </div>
 
-      <div id="student-info"></div>
+      <!-- Student Details Card -->
+      <div id="student-info" class="student-details-box card-section" role="region" aria-label="Student Information"></div>
 
-      <div class="results-table-container">
-        <table id="results-table">
-          <thead>
-            <tr>
-              <th>Subject</th>
-              <th>Marks</th>
-              <th>Grade</th>
-            </tr>
-          </thead>
-          <tbody id="results-body"></tbody>
-        </table>
+      <!-- Marks Table Card -->
+      <div class="card-section" role="region" aria-label="Subject Marks Table">
+        <div class="table-header-controls">
+          <h4 class="section-title"><i class="fas fa-table" aria-hidden="true"></i> Subject Marks</h4>
+          <div class="table-controls">
+            <button class="table-sort-btn" data-sort="subject" aria-label="Sort by Subject Name">
+              <i class="fas fa-sort" aria-hidden="true"></i> Subject
+            </button>
+            <button class="table-sort-btn" data-sort="marks" aria-label="Sort by Marks">
+              <i class="fas fa-sort" aria-hidden="true"></i> Marks
+            </button>
+            <div class="search-input-wrapper">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="subject-search" placeholder="Search subject..." class="subject-search-input" aria-label="Search subjects by name">
+            </div>
+          </div>
+        </div>
+        <div class="results-table-container" id="results-table-container">
+          <table id="results-table" role="table" aria-label="Student Examination Results">
+            <thead>
+              <tr>
+                <th data-sort="subject" role="columnheader" aria-sort="none">Subject <i class="fas fa-sort" aria-hidden="true"></i></th>
+                <th data-sort="marks" role="columnheader" aria-sort="none">Marks <i class="fas fa-sort" aria-hidden="true"></i></th>
+                <th data-sort="grade" role="columnheader" aria-sort="none">Grade <i class="fas fa-sort" aria-hidden="true"></i></th>
+              </tr>
+            </thead>
+            <tbody id="results-body" role="rowgroup"></tbody>
+          </table>
+        </div>
       </div>
 
-      <div id="summary-info"></div>
+      <!-- Summary Card -->
+      <div id="summary-info" class="card-section" role="region" aria-label="Results Summary"></div>
+      
+      <!-- Grade Details Modal/Tooltip -->
+      <div id="grade-details-modal" class="grade-details-modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Subject-wise Grades</h3>
+            <button class="modal-close" id="close-grade-modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body" id="grade-details-list"></div>
+        </div>
+      </div>
+
+      <!-- Performance Chart Card -->
+      <div id="performance-chart" class="card-section chart-section hidden" role="region" aria-label="Performance Chart">
+        <h4 class="section-title"><i class="fas fa-chart-bar"></i> Performance Overview</h4>
+        <div class="chart-container">
+          <canvas id="marksChart" aria-label="Marks comparison chart"></canvas>
+        </div>
+      </div>
 
       <div id="class-rank" class="hidden">
         <span class="rank-badge">Rank: <span id="rank-value"></span></span>
       </div>
 
-      <div id="coordinator-comment" class="hidden"></div>
+      <!-- Coordinator Comment Card -->
+      <div id="coordinator-comment" class="card-section coordinator-comment-card hidden"></div>
     </section>
 
     <!-- Result Generated Info -->
@@ -162,19 +244,36 @@
     </section>
 
     <!-- Warning / Notice Message -->
-    <div id="warning-message" class="card notice hidden">If any errors found in personal information or marks, contact the coordinator immediately.</div>
+    <div id="warning-message" class="card notice-box hidden">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>If any errors found in personal information or marks, contact the coordinator immediately.</span>
+    </div>
 
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer card">
+  <footer class="site-footer">
     <div class="container">
-      <p>Contact Us: <a href="alhiqmalearningcentre@gmail.com">alhiqmalearningcentre@gmail.com</a> | Phone: +94 76 300 5023</p>
-
-      <p class="copyright">&copy; 2025 AL-HIQMA LEARNING CENTRE. All rights reserved.</p>
+      <p class="copyright">&copy; 2025 AL-HIQMA Learning Centre. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100; // px from top to start animation
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+  </script>
 </body>
 </html>
