@@ -1,0 +1,328 @@
+/* 1️⃣ Header / Top Section */
+.site-header {
+  background-color: #0D3B66;
+  color: #FFFFFF;
+}
+
+.site-header .header-title {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.site-header .header-subtitle {
+  color: #F4A261;
+  font-style: italic;
+}
+
+/* Remove the old coordinator style from header */
+.header-coordinator {
+  display: none;
+}
+
+/* 2️⃣ Coordinator / Contact / Address Info Section */
+.coordinator-info {
+  background-color: #F5F5F5;
+  color: #333333;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.coordinator-info p {
+  margin: 5px 0;
+}
+
+.coordinator-info a {
+  color: #0077B6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.coordinator-info a:hover {
+  text-decoration: underline;
+}
+
+/* 3️⃣ Instructions / Notes Section */
+.instructions-notes {
+  background-color: #E0F7FA;
+  color: #333333;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.instructions-notes h3 {
+  margin-top: 0;
+}
+
+.instructions-notes ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+/* Hide old announcement banner */
+.status-banner {
+    display: none;
+}
+
+/* 4️⃣ Buttons (Submit / Reset / Links) */
+#getResultBtn,
+.form-buttons button[type="submit"] {
+  background-color: #0077B6;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#getResultBtn:hover,
+.form-buttons button[type="submit"]:hover {
+  background-color: #005a8d; /* Darker blue */
+}
+
+.form-buttons button[type="reset"] {
+  background-color: #F4A261;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-buttons button[type="reset"]:hover {
+  background-color: #e3914a; /* Darker orange */
+}
+
+/* 5️⃣ Footer / Disclaimer */
+.site-footer {
+  background-color: #0D3B66;
+  color: #FFFFFF;
+}
+
+.site-footer .copyright {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.site-footer a {
+    color: #F4A261;
+}
+
+/* --- Results Page Styles --- */
+
+/* 1️⃣ Student Details Section */
+#student-info {
+  background-color: #F7F7F7;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+#student-info p {
+  margin: 8px 0;
+}
+
+#student-info .detail-label {
+  color: #0D3B66;
+  font-weight: bold;
+}
+
+#student-info .detail-value {
+  color: #000000;
+}
+
+/* 2️⃣ Subject Marks Table */
+#results-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #DDDDDD;
+}
+
+#results-table th, #results-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+#results-table thead tr {
+  background-color: #0D3B66;
+  color: #0057D9; /* Changed to Royal Blue for visibility */
+}
+
+#results-table tbody tr {
+  background-color: #FFFFFF;
+}
+
+#results-table tbody tr:nth-child(even) {
+  background-color: #F2F2F2;
+}
+
+/* Grade Colors */
+.grade-A { color: #2BA84A; font-weight: bold; }
+.grade-B { color: #1E88E5; font-weight: bold; }
+.grade-C { color: #F4A261; font-weight: bold; }
+.grade-S { color: #E9C46A; font-weight: bold; }
+.grade-F { color: #E63946; font-weight: bold; }
+
+/* 3️⃣ Summary Box */
+#summary-info {
+  background-color: #E0F7FA;
+  color: #333333;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+#summary-info p {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+#summary-info strong {
+  color: #0D3B66;
+}
+
+/* Grade Badge Styling */
+.grade-badge {
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 10px;
+}
+.grade-badge-A { background-color: #2BA84A; }
+.grade-badge-B { background-color: #1E88E5; }
+.grade-badge-C { background-color: #F4A261; }
+.grade-badge-S { background-color: #E9C46A; }
+.grade-badge-F { background-color: #E63946; }
+
+/* 4️⃣ Pass / Fail Status */
+.status-pass {
+  color: #2BA84A;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.status-fail {
+  color: #D90429;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: #FFF0F0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Show section */
+.hidden {
+  display: none;
+}
+/* 6️⃣ Coordinator Comment Section */
+#coordinator-comment {
+  background-color: #F1FFF1;
+  border-left: 5px solid #2BA84A;
+  padding: 15px;
+  margin-top: 20px;
+  color: #333333;
+}
+
+/* 7️⃣ Print / Download Buttons */
+.results-btn-print,
+.results-btn-download {
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.results-btn-print {
+  background-color: #0057D9; /* Royal Blue */
+}
+
+.results-btn-print:hover {
+  background-color: #00409A; /* Darker Royal Blue */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.results-btn-download {
+  background-color: white;
+  color: #0057D9; /* Royal Blue */
+  border: 1px solid #C1DBFF; /* Light Blue outline */
+}
+
+.results-btn-download:hover {
+  background-color: #E1ECFF; /* Lighter Blue */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 8️⃣ Notice / Warning Message */
+.notice {
+  background-color: #FFF7D6; /* Pale Yellow */
+  border-left: 5px solid #FFD76B; /* Gold */
+  color: #5C4100; /* Dark brown */
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+/* 1️⃣ Student Basic Details */
+#student-info {
+  background-color: #FFFFFF;
+  border: 1px solid #E1ECFF; /* light blue border */
+}
+
+#student-info .detail-label {
+  color: #0057D9; /* Royal Blue */
+}
+
+#student-info .detail-value {
+  color: #1A1A1A; /* Dark Blackish grey */
+}
+
+/* 2️⃣ Subject Marks Table - (Already styled in previous versions) */
+/* 3️⃣ Summary Section */
+#summary-info {
+  background-color: #E9F2FF; /* soft blue */
+}
+
+#summary-info .section-title {
+  color: #0057D9;
+}
+
+/* 4️⃣ Class Rank */
+#class-rank {
+  margin-top: 15px;
+}
+
+.rank-badge {
+  background-color: #00377A; /* Navy blue */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+/* 5️⃣ Result Generated Info */
+#result-generated-info {
+  color: #2E2E2E; /* Dark grey */
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#result-generated-info .info-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+#result-generated-info .info-label {
+  color: #2E2E2E;
+  margin-right: 5px;
+}
+
+#result-generated-info i {
+  color: #DCE9FF; /* Light blue */
+}

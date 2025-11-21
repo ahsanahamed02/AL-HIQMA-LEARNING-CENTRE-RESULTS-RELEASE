@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AL-HIQMA LEARNING CENTRE - 2025 3rd Term Exam Results</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-new.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header card">
+    <div class="container header-content">
+      <div class="header-left">
+        <img src="assets/Logo.jpg" alt="AL-HIQMA Logo" class="logo interactive-logo">
+      </div>
+      <div class="header-right">
+        <h1 class="header-title fade-seq">AL-HIQMA LEARNING CENTRE</h1>
+        <p class="header-subtitle fade-seq delay-1">3rd Term Exam 2025 – O/L Batch</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Coordinator Info -->
+    <section class="coordinator-info card">
+      <p><strong>Coordinator:</strong> AR. Rifas (Sir)</p>
+      <p><strong>Contact Number:</strong> <a href="tel:+94763005023">+94 763005023</a></p>
+      <p><strong>Address:</strong> Thoppur, Trincomalee, Sri Lanka</p>
+      <p><strong>Email:</strong> <a href="mailto:alhiqmalearningcentre@gmail.com">alhiqmalearningcentre@gmail.com</a></p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/alhiqmalc.thoppur" target="_blank">Facebook Page</a></p>
+    </section>
+
+    <!-- Instructions Section -->
+    <section class="instructions-notes card">
+      <h3>Instructions for Students / Parents</h3>
+      <ul>
+        <li>Check your Index Number and Exam Year carefully.</li>
+        <li>Click "Get Results" to view your results.</li>
+        <li>For assistance, contact the coordinator via phone or email.</li>
+      </ul>
+    </section>
+
+    <!-- Exam Result Form -->
+    <section id="search-section" class="card">
+      <h2>Check Your Examination Results</h2>
+      <p>Please fill out the form below to view your results.</p>
+      <form id="search-form" class="input-group" aria-label="Examination Result Form">
+        <!-- Exam Select -->
+        <select id="examSelect" required>
+          <option value="">Select Exam</option>
+          <option value="G.C.E. (O/L) EXAMINATION">G.C.E. (O/L) EXAMINATION</option>
+          <option value="G.C.E. (A/L) EXAMINATION">G.C.E. (A/L) EXAMINATION</option>
+        </select>
+
+        <!-- Year Select -->
+        <select id="yearSelect" required>
+          <option value="">Select Year</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+        </select>
+
+        <!-- Index Number -->
+        <input type="text" id="indexInput" placeholder="Enter Your Index Number" required>
+
+        <!-- Human Checkbox -->
+        <label class="human-checkbox">
+          <input type="checkbox" id="humanCheck" required> I am Human
+        </label>
+
+        <!-- Buttons -->
+        <div class="form-buttons">
+          <button type="submit" id="getResultBtn"><i class="fas fa-search"></i> Get Results</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="hidden">
+      <div class="spinner"></div>
+      <p>Fetching your results...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="card error hidden" role="alert"></div>
+
+    <!-- Info Grid -->
+    <section class="info-grid card" aria-label="Help and support information">
+      <article class="info-card">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <h3>Instant Access</h3>
+        <p>Results are pulled directly from our verified Google Workspace data, ensuring accuracy and speed.</p>
+      </article>
+      <article class="info-card">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        <h3>Secure & Private</h3>
+        <p>Every lookup is encrypted over HTTPS. Access is logged to protect students and maintain transparency.</p>
+      </article>
+      <article class="info-card">
+        <i class="fas fa-headset" aria-hidden="true"></i>
+        <h3>Need Assistance?</h3>
+        <p>Our support team is available 7 days a week. Contact us if your index number cannot be found.</p>
+      </article>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="card hidden">
+      <div class="results-header">
+        <h3>Your Results</h3>
+
+        <button id="printBtn" class="results-btn-print"><i class="fas fa-print"></i> Print Results</button>
+        <button id="downloadBtn" class="results-btn-download"><i class="fas fa-download"></i> Download PDF</button>
+      </div>
+
+      <div id="student-info"></div>
+
+      <div class="results-table-container">
+        <table id="results-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Marks</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody id="results-body"></tbody>
+        </table>
+      </div>
+
+      <div id="summary-info"></div>
+
+      <div id="class-rank" class="hidden">
+        <span class="rank-badge">Rank: <span id="rank-value"></span></span>
+      </div>
+
+      <div id="coordinator-comment" class="hidden"></div>
+    </section>
+
+    <!-- Result Generated Info -->
+    <section id="result-generated-info" class="card hidden">
+      <div class="info-section">
+        <i class="fas fa-calendar-alt"></i>
+        <span class="info-label">Result Released:</span>
+        <span id="release-datetime"></span>
+      </div>
+      <div class="info-section">
+        <i class="fas fa-user-tie"></i>
+        <span class="info-label">Verified By:</span>
+        <span>AR. Rifas (Sir) - Coordinator</span>
+      </div>
+      <div class="info-section">
+        <i class="fas fa-cog"></i>
+        <span class="info-label">Generated By:</span>
+        <span>AL-HIQMA Learning Centre - System</span>
+      </div>
+    </section>
+
+    <!-- Warning / Notice Message -->
+    <div id="warning-message" class="card notice hidden">If any errors found in personal information or marks, contact the coordinator immediately.</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer card">
+    <div class="container">
+      <p>Contact Us: <a href="alhiqmalearningcentre@gmail.com">alhiqmalearningcentre@gmail.com</a> | Phone: +94 76 300 5023</p>
+
+      <p class="copyright">&copy; 2025 AL-HIQMA LEARNING CENTRE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
