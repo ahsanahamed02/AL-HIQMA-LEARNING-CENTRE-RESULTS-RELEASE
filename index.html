@@ -13,8 +13,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf-autotable.umd.min.js"></script>
 <style>
+  /* Center text for all relevant inputs and selects */
+  #examSelect,
+  #yearSelect,
+  #indexInput,
   .subject-search-input {
     text-align: center;
+  }
+
+  /* Center placeholder text for WebKit browsers (Chrome, Safari) */
+  #indexInput::placeholder,
+  .subject-search-input::placeholder {
+    text-align: center;
+    opacity: 1; /* Firefox has a lower default opacity */
+  }
+
+  /* Center placeholder text for Firefox */
+  #indexInput::-moz-placeholder,
+  .subject-search-input::-moz-placeholder {
+    text-align: center;
+    opacity: 1;
   }
 </style>
 <body>
