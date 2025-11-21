@@ -33,6 +33,7 @@ body {
     width: 95%;
     margin: 0 auto;
     padding: 24px;
+    padding: 24px 15px; /* Use smaller horizontal padding for flexibility */
 }
 
 /* -------------------- Header -------------------- */
@@ -249,6 +250,8 @@ body {
 .results-table-container {
     overflow-x: auto;
     transition: opacity 0.3s ease;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    border-radius: 12px; /* Add radius to match card */
 }
 
 #results-table {
@@ -261,6 +264,7 @@ body {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
+    white-space: nowrap; /* Fix 2: Prevent words from breaking */
 }
 
 #results-table th {
@@ -433,6 +437,8 @@ tbody tr:hover {
 .site-footer a:hover { text-decoration: underline; }
 
 /* -------------------- Responsive -------------------- */
+
+/* ✅ For tablets and smaller screens */
 @media (max-width: 768px) {
     .container { width: 94%; padding: 18px; }
     .input-group { flex-direction: column; }
@@ -442,6 +448,28 @@ tbody tr:hover {
     .header-content { flex-direction: column; text-align: center; }
     .header-right { text-align: center; }
     .header-title { letter-spacing: 0.06em; }
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    #examSelect, #yearSelect, #indexInput {
+        max-width: 100%;
+    }
+    .form-buttons {
+        flex-direction: column;
+    }
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 }
 
 /* -------------------- Animations -------------------- */
