@@ -3,7 +3,6 @@
 A modern, secure, and user-friendly web application designed for students of AL-HIQMA Learning Centre to check their examination results online. This portal fetches data dynamically from a Google Sheets backend via Google Apps Script, ensuring real-time and accurate information.
 
 ![Project Screenshot](https://i.imgur.com/example.png) 
-*(Suggestion: Replace the above URL with a real screenshot of your application)*
 
 ---
 
@@ -112,5 +111,6 @@ d. **Run the Application**:
 ## ©️ License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
 
 © 2025 AL-HIQMA Learning Centre. All rights reserved.
